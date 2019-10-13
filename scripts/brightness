@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# Kill any previous instances
+pgrep -x brightness >/dev/null && kill $(pgrep -x brightness | grep -v $$)
+
+path=/sys/class/backlight/intel_backlight
+
+luminance() {
+  read -r level < "$path"/actual_brightness
+  bc <<< "scale=10;$level/$max"
+}
+
+set_brightness() {
+  lum=$(luminance)
+  if awk -v n2=$lum -v n1="0.1" 'BEGIN { exit (n1 <= n2) }' /dev/null; then lum=0.1; fi
+  echo $lum
+  killall redshift
+  redshift -o -m wayland -l 55.60:13.00 -t 6500K:4500K -b $lum:$lum &
+  sleep 500ms
+}
+
+read -r max < "$path"/max_brightness
+
+set_brightness
+
+while inotifywait -e modify "$path"/actual_brightness; do
+  set_brightness
+done
