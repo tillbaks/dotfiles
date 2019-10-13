@@ -15,14 +15,13 @@ smart_gaps off
 hide_edge_borders smart
 for_window [app_id="termite"] opacity 0.95
 
-set $foreground   #ffffff
-set $foreground-alt   #000000
-set $background   #000000
-set $background-alt   #333333
-set $borderColor #000000
-set $cursorColor  #c5c8c6
-set $accentColor #458c62
-set $urgencyColor #941c1c
+set $foreground   #fbf1c7
+set $foreground-alt   #ebdbb2
+set $background   #282828
+set $background-alt   #3c3836
+set $borderColor #3c3836
+set $accentColor #d65d0e
+set $urgencyColor #b16286
 
 # class                 border           backgr.      text             indicator      child_border
 client.focused          $accentColor  $accentColor     $foreground  $accentColor    $accentColor

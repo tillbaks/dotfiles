@@ -1,6 +1,13 @@
 # Enable colors
 [[ "$COLORTERM" == (24bit|truecolor) || "${terminfo[colors]}" -eq '16777216' ]] || zmodload zsh/nearcolor
 autoload -U colors && colors
+# gruvbox colors
+yellow=#d79921
+green=#98971a
+blue=#458588
+red=#cc241d
+purple=#b16286
+grey=#a89984
 
 # History in cache directory:
 HISTSIZE=10000
@@ -34,7 +41,7 @@ fi
 # Change prompt and cursor shape for different vi modes.
 function zle-keymap-select {
     # Shows vi mode (INSERT/NORMAL) in prompt
-    PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~ %{$fg[yellow]%}${${KEYMAP/vicmd/NORMAL}/(main|viins)/INSERT}%{$fg[red]%}]%{$reset_color%}%(!.#.$)%b "
+    PS1="%B%F{$yellow}%n%F{$green}@%F{$blue}%M %F{$purple}%~ %F{$yellow}${${KEYMAP/vicmd/NORMAL}/(main|viins)/INSERT}%{$reset_color%} %(!.#.$)%b "
     PS2=$PS1
     zle reset-prompt
   if [[ ${KEYMAP} == vicmd ]] ||
