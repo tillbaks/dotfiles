@@ -24,6 +24,8 @@ export LIBVA_DRIVER_NAME=iHD
 
 # Force the usage of X11 on a Wayland session (Android emulator)
 export QT_QPA_PLATFORM=xcb
+# Run firefox with wayland
+export MOZ_ENABLE_WAYLAND=true
 
 # Note: Many proprietary games come bundled with old versions of SDL
 # which don't support Wayland and might break entirely if you set SDL_VIDEODRIVER=wayland.
