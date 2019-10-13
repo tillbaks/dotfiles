@@ -46,9 +46,9 @@
         "spacing": 10
     },
     "clock": {
-        "tooltip-format": "{:%Y-%m-%d | %H:%M}",
-        "format": "{:%Y-%m-%d | %H:%M}",
-        "format-alt": "{:%H:%M}"
+        "tooltip-format": "{:%Y-%m-%d / %H:%M}",
+        "format": "{:%Y-%m-%d / %H:%M}",
+        "format-alt": "{:%Y-%m-%d / %H:%M}"
     },
     "cpu": {
         "format": "{usage}% CPU"
@@ -60,12 +60,12 @@
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 60,
-        "format-critical": "{temperatureC}°C  ",
-        "format": "{temperatureC}°C  "
+        "format-critical": "{temperatureC}°C ",
+        "format": "{temperatureC}°C "
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}%  {icon}",
+        "format": "{percent}% {icon}",
         "format-icons": [""]
     },
     "battery": {
@@ -74,7 +74,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}%  {icon}",
+        "format": "{capacity}% {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
@@ -84,15 +84,15 @@
     },
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%)  ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected  ⚠",
         "on-click": "termite --exec=nmtui"
     },
     "pulseaudio": {
         "scroll-step": 3,
-        "format": "{volume}%  {icon}",
-        "format-bluetooth": "{volume}%  {icon}",
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
         "format-muted": "muted  ",
         "format-icons": {
             "headphones": "",

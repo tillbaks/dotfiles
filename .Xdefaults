@@ -1,19 +1,2 @@
 Xft.dpi: 133
 Xcursor.theme: Adwaita
-
-rofi.color-enabled: true
-rofi.color-window: #000000, #1a426f, #dc7f41
-rofi.color-normal: #000000, #c5c8c6, #000000, #000000, #1a426f
-rofi.color-active: #000000, #c5c8c6, #000000, #000000, #1a426f
-rofi.color-urgent: #000000, #c5c8c6, #000000, #000000, #1a426f
-rofi.separator-style: none
-rofi.sidebar-mode: false
-rofi.lines: 10
-rofi.font: RobotoLight 28
-rofi.bw: 0
-rofi.columns: 1
-rofi.padding: 400
-rofi.line-padding: 5
-rofi.fixed-num-lines: true
-rofi.hide-scrollbar: true
-rofi.fullscreen: true

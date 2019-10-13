@@ -40,7 +40,7 @@ fi
 # Configs for any non-root users
 if [ ! $USER == "root" ]; then
 
-  echo "=> Adding symlink to .Xdefaults (rofi config, dpi, cursor?)"
+  echo "=> Adding symlink to .Xdefaults (dpi, cursor..)"
   ln -vnfs $SCRIPTPATH/.Xdefaults $HOME/.Xdefaults
 
   echo "=> Adding symlinks to gtk3 config"
@@ -56,6 +56,14 @@ if [ ! $USER == "root" ]; then
   echo "=> Adding symlinks to gtk3 theme"
   mkdir -v -p $HOME/.themes
   ln -vnfs $SCRIPTPATH/.themes/oomox-gruvbox-dark-hard $HOME/.themes/oomox-gruvbox-dark-hard
+
+  if type rofi &>/dev/null; then
+    echo "=> Adding symlinks to rofi config"
+    mkdir -v -p $HOME/.config/rofi
+    ln -vnfs $SCRIPTPATH/.config/rofi/config $HOME/.config/rofi/config
+    ln -vnfs $SCRIPTPATH/.config/rofi/gruvbox-common.inc.rasi $HOME/.config/rofi/gruvbox-common.inc.rasi
+    ln -vnfs $SCRIPTPATH/.config/rofi/gruvbox.rasi $HOME/.config/rofi/gruvbox.rasi
+  fi
 
   if type sway &>/dev/null; then
     echo "=> Adding symlinks to sway config"
