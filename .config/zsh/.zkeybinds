@@ -21,16 +21,18 @@ key[Home]="${terminfo[khome]}"
 key[End]="${terminfo[kend]}"
 key[Insert]="${terminfo[kich1]}"
 key[Backspace]="${terminfo[kbs]}"
+key[CtrlBackspace]="^H"
 key[Delete]="${terminfo[kdch1]}"
+key[CtrlDelete]="^[[3;5~"
 key[Up]="${terminfo[kcuu1]}"
 key[Down]="${terminfo[kcud1]}"
 key[Left]="${terminfo[kcub1]}"
+key[CtrlLeft]="^[[1;5D"
 key[Right]="${terminfo[kcuf1]}"
+key[CtrlRight]="^[[1;5C"
 key[PageUp]="${terminfo[kpp]}"
 key[PageDown]="${terminfo[knp]}"
 key[ShiftTab]="${terminfo[kcbt]}"
-key[CtrlLeft]="^[[1;5D"
-key[CtrlRight]="^[[1;5C"
 
 # Bind keys to vi insert and normal mode
 bindvikey "${key[Home]}"      beginning-of-line
@@ -38,6 +40,8 @@ bindvikey "${key[End]}"       end-of-line
 bindvikey "${key[Insert]}"    overwrite-mode
 bindvikey "${key[Backspace]}" backward-delete-char
 bindvikey "${key[Delete]}"    delete-char
+bindvikey "${key[CtrlDelete]}"    delete-word
+bindvikey "${key[CtrlBackspace]}"    backward-delete-word
 bindvikey "${key[Up]}"        up-line-or-beginning-search
 bindvikey "${key[Down]}"      down-line-or-beginning-search
 bindvikey "${key[Left]}"      backward-char
