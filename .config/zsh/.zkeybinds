@@ -1,0 +1,66 @@
+# Lots of stuff to fix keybinds
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+# Binds key for both insert and normal modes
+function bindvikey() {
+  if [[ "$1" != "" ]]; then
+    bindkey -v "$1" "$2"
+    bindkey -a "$1" "$2"
+  fi
+}
+
+# create a zkbd compatible hash;
+# to add other keys to this hash, see: man 5 terminfo
+typeset -g -A key
+
+key[Home]="${terminfo[khome]}"
+key[End]="${terminfo[kend]}"
+key[Insert]="${terminfo[kich1]}"
+key[Backspace]="${terminfo[kbs]}"
+key[Delete]="${terminfo[kdch1]}"
+key[Up]="${terminfo[kcuu1]}"
+key[Down]="${terminfo[kcud1]}"
+key[Left]="${terminfo[kcub1]}"
+key[Right]="${terminfo[kcuf1]}"
+key[PageUp]="${terminfo[kpp]}"
+key[PageDown]="${terminfo[knp]}"
+key[ShiftTab]="${terminfo[kcbt]}"
+key[CtrlLeft]="^[[1;5D"
+key[CtrlRight]="^[[1;5C"
+
+# Bind keys to vi insert and normal mode
+bindvikey "${key[Home]}"      beginning-of-line
+bindvikey "${key[End]}"       end-of-line
+bindvikey "${key[Insert]}"    overwrite-mode
+bindvikey "${key[Backspace]}" backward-delete-char
+bindvikey "${key[Delete]}"    delete-char
+bindvikey "${key[Up]}"        up-line-or-beginning-search
+bindvikey "${key[Down]}"      down-line-or-beginning-search
+bindvikey "${key[Left]}"      backward-char
+bindvikey "${key[Right]}"     forward-char
+bindvikey "${key[PageUp]}"    up-history
+bindvikey "${key[PageDown]}"  down-history
+bindvikey "${key[ShiftTab]}"  reverse-menu-complete
+bindvikey "${key[CtrlLeft]}"  backward-word
+bindvikey "${key[CtrlRight]}" forward-word
+
+# bind keys to only vi insert mode
+bindkey ' ' magic-space # [Space] - do history expansion
+
+# Finally, make sure the terminal is in application mode, when zle is
+# active. Only then are the values from $terminfo valid.
+if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+	autoload -Uz add-zle-hook-widget
+	function zle_application_mode_start {
+		echoti smkx
+	}
+	function zle_application_mode_stop {
+		echoti rmkx
+	}
+	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+fi

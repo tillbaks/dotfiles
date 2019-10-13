@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+# ALIASES
+
+alias ..='cd ..'
+alias cd..='cd ..'
+alias vi='nvim'
+alias vim='nvim'
+alias df='df --human-readable'
+alias du='du --human-readable'
+alias cp='cp --verbose'
+alias mkdir='mkdir --parents --verbose'
+alias grep='grep --color'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias ls="ls --human-readable --literal --color=auto --group-directories-first"
+alias ll="ls -l --human-readable --literal --color=auto --group-directories-first"
+alias la="ls --almost-all --human-readable --literal --color=auto --group-directories-first"
+alias ssh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+alias scp='scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
