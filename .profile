@@ -13,11 +13,15 @@ export FILE="lf"
 # Disable less search history
 export LESSHISTFILE=/dev/null
 
-# Move node historyto cache
+# Move node history to cache
 export NODE_REPL_HISTORY=/home/johannes/.cache/node/history
 
 # Set up Node Version Manager
-export NVM_DIR="$HOME/.nvm"
+if [ -s "$NVM_SOURCE/nvm.sh" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  export NVM_SOURCE="/usr/share/nvm"
+  source "$NVM_SOURCE/init-nvm.sh"
+fi
 
 # hardware accel in mpv
 export LIBVA_DRIVER_NAME=iHD
@@ -36,6 +40,11 @@ export MOZ_ENABLE_WAYLAND=true
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.uiScale=1.5 -Dsun.java2d.uiScale.enabled=false"
 
-# Start graphical server if not already running.
-#[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x sway >/dev/null && exec sway
+# Start sway if installed and not already running.
+if type sway &>/dev/null; then
+  [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x sway >/dev/null && exec sway
+fi
+# Start i3 if installed and not already running.
+#if type i3 &>/dev/null; then
+#[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec i3
+#fi

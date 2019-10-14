@@ -36,21 +36,21 @@ moonlight-qt
 
 echo "=> Installing required packages"
 
-yay -S $requiredPackages
+yay -S --needed $requiredPackages
 
 echo "=> Do you want to install GUI packages? [Y/N]"
 read installGui
 case $installGui in
   [yY])
     echo "=> Installing GUI packages"
-    yay -S $guiPackages
+    yay -S --needed $guiPackages
 
     echo "=> Do you want to install Game packages? [Y/N]"
     read installGames
     case $installGames in
       [yY])
         echo "=> Installing Game packages"
-        yay -S $gamePackages
+        yay -S --needed $gamePackages
         ;;
       *)
         echo "=> Skipping Game packages"

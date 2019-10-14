@@ -96,8 +96,6 @@ bindkey -a '^e' edit-command-line
 # Load aliases if they exist
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
-# Load Node Version Manager stuff
-[ -f "/usr/share/nvm/init-nvm.sh" ] && source /usr/share/nvm/init-nvm.sh
 # Load zsh-autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 # Load zsh-syntax-highlighting; should be last.
