@@ -24,6 +24,7 @@ guiPackages="numix-icon-theme
 redshift-wlr-gamma-control-git
 ttf-google-fonts-typewolf
 sway
+rot8-git
 rofi
 termite
 imv
