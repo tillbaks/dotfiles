@@ -8,9 +8,14 @@ autoload -U colors && colors
 yellow=#d79921
 green=#98971a
 blue=#458588
-red=#cc241d
+red=#fb4934
 purple=#b16286
 grey=#a89984
+
+# yellow used in prompt becomes red for root user
+if [[ ${USER} == "root" ]]; then
+  yellow=${red}
+fi
 
 # History in cache directory:
 HISTSIZE=10000
