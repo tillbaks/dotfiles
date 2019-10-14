@@ -19,6 +19,7 @@ ln -vnfs $SCRIPTPATH/.config/aliasrc $HOME/.config/aliasrc
 if type zsh &>/dev/null; then
   echo "=> Adding symlinks to zsh config"
   mkdir -v -p $HOME/.config/zsh
+  mkdir -v -p $HOME/.cache/zsh
   ln -vnfs $SCRIPTPATH/.zprofile $HOME/.zprofile
   ln -vnfs $SCRIPTPATH/.config/zsh/.zshrc $HOME/.config/zsh/.zshrc
   ln -vnfs $SCRIPTPATH/.config/zsh/.zkeybinds $HOME/.config/zsh/.zkeybinds
