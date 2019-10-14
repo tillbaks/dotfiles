@@ -12,9 +12,9 @@ lf
 neovim
 zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting
 fzf fzy
-ccls nvm
 the_silver_searcher
 gitflow-avh gitflow-zshcompletion-avh
+ccls
 "
 
 guiPackages="
@@ -37,7 +37,12 @@ moonlight-qt
 echo "=> Installing required packages"
 
 yay -S --needed $requiredPackages
-
+if [ -d "$HOME/.config/zsh/.zsh-nvm" ]; then
+  echo "zsh-nvm exists - updating"
+  git -C "$HOME/.config/zsh/.zsh-nvm" pull
+else
+  git clone https://github.com/lukechilds/zsh-nvm.git "$HOME/.config/zsh/.zsh-nvm"
+fi
 echo "=> Do you want to install GUI packages? [Y/N]"
 read installGui
 case $installGui in

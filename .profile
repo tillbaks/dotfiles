@@ -16,13 +16,6 @@ export LESSHISTFILE=/dev/null
 # Move node history to cache
 export NODE_REPL_HISTORY=/home/johannes/.cache/node/history
 
-# Set up Node Version Manager
-export NVM_SOURCE="/usr/share/nvm"
-if [ -s "$NVM_SOURCE/nvm.sh" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  source "$NVM_SOURCE/init-nvm.sh"
-fi
-
 # hardware accel in mpv
 export LIBVA_DRIVER_NAME=iHD
 
