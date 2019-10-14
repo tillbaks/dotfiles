@@ -17,9 +17,9 @@ export LESSHISTFILE=/dev/null
 export NODE_REPL_HISTORY=/home/johannes/.cache/node/history
 
 # Set up Node Version Manager
+export NVM_SOURCE="/usr/share/nvm"
 if [ -s "$NVM_SOURCE/nvm.sh" ]; then
   export NVM_DIR="$HOME/.nvm"
-  export NVM_SOURCE="/usr/share/nvm"
   source "$NVM_SOURCE/init-nvm.sh"
 fi
 
