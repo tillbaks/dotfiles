@@ -28,8 +28,9 @@ fi
 
 if type lf &>/dev/null; then
   echo "=> Adding symlinks to lf config"
-  mkdir -v -p $HOME/.config/lf
+  mkdir -v -p $HOME/.config/lf $HOME/.local/share/applications
   ln -vnfs $SCRIPTPATH/.config/lf/lfrc $HOME/.config/lf/lfrc
+  ln -vnfs $SCRIPTPATH/.local/share/applications/lf.desktop $HOME/.local/share/applications/lf.desktop
 fi
 
 if type nvim &>/dev/null; then

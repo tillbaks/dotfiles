@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=lf
+GenericName=File Manager
+TryExec=lf
+Exec=lf %F
+Terminal=true
+Type=Application
+Keywords=File;manager;
+Icon=lf
+Categories=Utility;FileManager;
+StartupNotify=false
