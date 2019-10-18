@@ -2,6 +2,7 @@
 # Profile file. Runs on login.
 
 PATH="$HOME/scripts:$PATH"
+PATH="$HOME/.nvm/versions/node/v10.16.3/bin:$PATH"
 
 export VISUAL="nvim"
 export EDITOR="nvim"
