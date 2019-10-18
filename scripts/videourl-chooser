@@ -1,0 +1,19 @@
+#!/bin/sh
+videourl="$1"
+selection=$(echo -e "Play with MPV\nDownload with YouTubeDL\nDownload then play" | rofi -dmenu -theme ~/.config/rofi/gruvbox -p "Filter" -mesg "$videourl" -no-custom)
+
+if [ "$selection" == "Play with MPV" ]; then
+
+  termite --exec "mpv --quiet $videourl"
+
+elif [ "$selection" == "Download with YouTubeDL" ]; then
+
+  termite --exec 'youtube-dl -f "h264/bestvideo[ext=mp4]+bestaudio/best" -o "~/Downloads/%(title)s.%(ext)s" '"$videourl"
+
+elif [ "$selection" == "Download then play" ]; then
+
+  termite --exec 'youtube-dl -f "h264/bestvideo[ext=mp4]+bestaudio/best" -o "~/Downloads/.youtubedl_tempfile" '"$videourl"
+  mpv --quiet --start=0 ~/Downloads/.youtubedl_tempfile*
+  rm ~/Downloads/.youtubedl_tempfile*
+
+fi

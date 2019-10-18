@@ -114,3 +114,8 @@ nmap <F3> :set invnumber invrelativenumber<CR>
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
+
+" Some remapping
+nnoremap <BS> X
+nnoremap <Tab> >>
+nnoremap <S-Tab> <<

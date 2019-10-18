@@ -38,7 +38,7 @@ set $term termite
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 #set $menu dmenu_path | dmenu | xargs swaymsg exec
-set $menu "rofi -combi-modi drun,run,window -show combi -modi combi -theme ~/.config/rofi/gruvbox"
+set $menu "rofi -combi-modi drun,run,window -show combi -modi combi -theme ~/.config/rofi/gruvbox -terminal termite"
 
 ### Output configuration
 #
@@ -136,16 +136,16 @@ input 0:0:Intel_Virtual_Button_driver map_to_output eDP-1
 # Workspaces:
 #
     # switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
+    bindsym $mod+1 workspace 1, exec ~/scripts/swaybg-random.sh
+    bindsym $mod+2 workspace 2, exec ~/scripts/swaybg-random.sh
+    bindsym $mod+3 workspace 3, exec ~/scripts/swaybg-random.sh
+    bindsym $mod+4 workspace 4, exec ~/scripts/swaybg-random.sh
+    bindsym $mod+5 workspace 5, exec ~/scripts/swaybg-random.sh
+    bindsym $mod+6 workspace 6, exec ~/scripts/swaybg-random.sh
+    bindsym $mod+7 workspace 7, exec ~/scripts/swaybg-random.sh
+    bindsym $mod+8 workspace 8, exec ~/scripts/swaybg-random.sh
+    bindsym $mod+9 workspace 9, exec ~/scripts/swaybg-random.sh
+    bindsym $mod+0 workspace 10, exec ~/scripts/swaybg-random.sh
     # move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace 1
     bindsym $mod+Shift+2 move container to workspace 2

@@ -18,7 +18,7 @@ fzy
 the_silver_searcher
 gitflow-avh
 gitflow-zshcompletion-avh
-ccls"
+cquery"
 
 guiPackages="numix-icon-theme
 redshift-wlr-gamma-control-git
