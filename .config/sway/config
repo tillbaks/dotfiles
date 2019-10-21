@@ -7,20 +7,22 @@
 font pango:Roboto Condensed 12
 
 focus_follows_mouse no
-default_border pixel 3
-default_floating_border pixel 3
-gaps inner 10
+default_border pixel 5
+default_floating_border pixel 5
+gaps inner 20
+gaps outer -10
 smart_borders on
 smart_gaps off
 hide_edge_borders smart
-for_window [app_id="termite"] opacity 0.95
+for_window [app_id="termite"] opacity 0.8
+for_window [class="Brave-browser"] opacity 0.85
 
 set $foreground   #fbf1c7
 set $foreground-alt   #ebdbb2
 set $background   #282828
 set $background-alt   #3c3836
 set $borderColor #3c3836
-set $accentColor #fabd2f
+set $accentColor #d79921
 set $urgencyColor #b16286
 
 # class                 border           backgr.      text             indicator      child_border
@@ -259,5 +261,11 @@ exec_always ~/scripts/swaybg-random.sh
 exec light -U 5
 exec light -A 5
 exec rot8
+
+# Set GTK theme
+exec_always import-gsettings \
+    gtk-theme:gtk-theme-name \
+    icon-theme:gtk-icon-theme-name \
+    cursor-theme:gtk-cursor-theme-name
 
 include /etc/sway/config.d/*

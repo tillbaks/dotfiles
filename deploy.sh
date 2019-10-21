@@ -56,6 +56,7 @@ if [ ! $USER == "root" ]; then
   ln -vnfs $SCRIPTPATH/scripts/brightness $HOME/scripts/brightness
   ln -vnfs $SCRIPTPATH/scripts/swaybg-random.sh $HOME/scripts/swaybg-random.sh
   ln -vnfs $SCRIPTPATH/scripts/videourl-chooser $HOME/scripts/videourl-chooser
+  ln -vnfs $SCRIPTPATH/scripts/import-gsettings $HOME/scripts/import-gsettings
 
   echo "=> Adding symlinks to gtk3 theme"
   mkdir -v -p $HOME/.themes
