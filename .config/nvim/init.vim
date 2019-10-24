@@ -10,6 +10,7 @@ call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
+Plug 'evanleck/vim-svelte'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -27,7 +28,7 @@ let g:clang_format#detect_style_file = 1 " Find and use .clang-format file
 let g:clang_format#style_options = { "BasedOnStyle" : "google" } " Default style
 
 " Coc extensions
-call coc#add_extension('coc-tsserver', 'coc-json', 'coc-html', 'coc-css', 'coc-python', 'coc-prettier', 'coc-yaml')
+call coc#add_extension('coc-tsserver', 'coc-json', 'coc-html', 'coc-css', 'coc-python', 'coc-prettier', 'coc-yaml', 'coc-svelte')
 " Use <Tab> and <S-Tab> to navigate the completion list:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
