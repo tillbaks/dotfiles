@@ -16,6 +16,9 @@ echo "=> Adding symlink to aliasrc"
 mkdir -v -p $HOME/.config
 ln -vnfs $SCRIPTPATH/.config/aliasrc $HOME/.config/aliasrc
 
+echo "=> Adding symlink to .config/.dir_colors"
+ln -vnfs $SCRIPTPATH/.config/.dir_colors $HOME/.config/.dir_colors
+
 if type zsh &>/dev/null; then
   echo "=> Adding symlinks to zsh config"
   mkdir -v -p $HOME/.config/zsh

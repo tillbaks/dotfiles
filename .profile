@@ -34,6 +34,9 @@ export MOZ_ENABLE_WAYLAND=true
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.uiScale=1.5 -Dsun.java2d.uiScale.enabled=false"
 
+# LS_COLORS:
+eval `dircolors -b $HOME/.config/.dir_colors`
+
 # Start sway if installed and not already running.
 if type sway &>/dev/null; then
   [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x sway >/dev/null && exec sway
