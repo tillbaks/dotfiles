@@ -8,7 +8,6 @@ endif
 " PLUGINS
 call plug#begin()
 Plug 'morhetz/gruvbox' " Color scheme
-Plug 'zhaocai/GoldenView.Vim' " Better vim splitting
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -17,19 +16,23 @@ Plug 'rbgrouleff/bclose.vim' "lf.vim dependency
 Plug 'ptzz/lf.vim' " Ctrl-n
 Plug 'sheerun/vim-polyglot' " Programming language support
 Plug 'rhysd/vim-clang-format' " Format C-like code
+Plug 'TaDaa/vimade' " Fades out inactive panes
 "Plug 'jackguo380/vim-lsp-cxx-highlight'
 call plug#end()
 
-" GoldenView vim splits
-let g:goldenview__enable_default_mapping = 0 " Reset default key mapping
-" 1. Split
-nmap <silent> <A-s>  <Plug>GoldenViewSplit
-" 2. Quickly switch current window with the main pane/toggle back
-"nmap <silent> <F8>   <Plug>GoldenViewSwitchMain
-"nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
-" 3. Go to next/previous window
-nmap <silent> <A-Right>  <Plug>GoldenViewNext
-nmap <silent> <A-Left>  <Plug>GoldenViewPrevious
+" Split navigation
+nnoremap <A-Down> <C-W><C-J>
+nnoremap <A-Up> <C-W><C-K>
+nnoremap <A-Right> <C-W><C-L>
+nnoremap <A-Left> <C-W><C-H>
+" Create splits
+nnoremap <A-s> <C-W><C-S>
+nnoremap <A-v> <C-W><C-v>
+" Resize splits
+nnoremap <A-S-Down> <C-W>-
+nnoremap <A-S-Up> <C-W>+
+nnoremap <A-S-Right> <C-W>>
+nnoremap <A-S-Left> <C-W><
 
 " clang-format - enable auto-formatting on save for C and java files
 autocmd FileType c,cpp,java ClangFormatAutoEnable
