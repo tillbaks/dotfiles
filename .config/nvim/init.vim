@@ -34,6 +34,11 @@ nnoremap <A-S-Up> <C-W>+
 nnoremap <A-S-Right> <C-W>>
 nnoremap <A-S-Left> <C-W><
 
+" Inactive fading settings
+let g:vimade = {}
+let g:vimade.fadelevel = 0.7
+let g:vimade.enablesigns = 1
+
 " clang-format - enable auto-formatting on save for C and java files
 autocmd FileType c,cpp,java ClangFormatAutoEnable
 

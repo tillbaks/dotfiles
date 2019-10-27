@@ -55,7 +55,7 @@ set $menu "rofi -combi-modi drun,run,window -show combi -modi combi -theme ~/.co
 
 output eDP-1 pos 0 0 res 2560x1440 scale 1
 #output HDMI-A-1 pos 2560 0 res 1920x1080 scale 0.7
-output HDMI-A-1 res 1920x1080 scale 0.7
+#output HDMI-A-1 res 1920x1080 scale 0.7
 
 ### Idle configuration
 #

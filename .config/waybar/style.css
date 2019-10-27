@@ -12,7 +12,7 @@ window#waybar {
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button {
-  padding: 0 15px;
+  padding: 0 10px;
   background: transparent;
   color: #fabd2f;
 }
@@ -43,8 +43,41 @@ window#waybar {
   margin: 0;
 }
 
-#clock {
-  font-weight: bold;
+#idle_inhibitor {
+  color: #a89984;
+}
+
+#idle_inhibitor.activated {
+  background-color: #8ec07c;
+  color: #3c3836;
+}
+
+#network {
+  color: #a89984;
+}
+
+#network.disconnected {
+  color: #fb4934;
+}
+
+#cpu {
+  color: #a89984;
+}
+
+#memory {
+  color: #a89984;
+}
+
+#temperature {
+  color: #a89984;
+}
+
+#temperature.critical {
+  color: #fe8019;
+}
+
+#backlight {
+  color: #8ec07c;
 }
 
 #battery {
@@ -77,26 +110,6 @@ window#waybar {
   animation-direction: alternate;
 }
 
-#cpu {
-  color: #fe8019;
-}
-
-#memory {
-  color: #fe8019;
-}
-
-#backlight {
-  color: #8ec07c;
-}
-
-#network {
-  color: #a89984;
-}
-
-#network.disconnected {
-  color: #fb4934;
-}
-
 #pulseaudio {
   color: #8ec07c;
 }
@@ -109,23 +122,10 @@ window#waybar {
 #custom-media {
 }
 
-#temperature {
-  color: #fe8019;
-}
-
-#temperature.critical {
-  background-color: #fb4934;
-  color: #3c3836;
-}
-
 #tray {
     background-color: #2980b9;
 }
 
-#idle_inhibitor {
-  color: #a89984;
-}
-
-#idle_inhibitor.activated {
-  color: #a89984;
+#clock {
+  font-weight: bold;
 }
