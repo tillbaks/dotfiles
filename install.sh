@@ -25,6 +25,7 @@ redshift-wlr-gamma-control-git
 ttf-google-fonts-typewolf
 sway
 mako
+clipman
 rot8-git
 rofi
 termite
