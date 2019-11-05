@@ -73,6 +73,12 @@ if [ ! $USER == "root" ]; then
     ln -vnfs $SCRIPTPATH/.config/rofi/gruvbox.rasi $HOME/.config/rofi/gruvbox.rasi
   fi
 
+  if type mako &>/dev/null; then
+    echo "=> Adding symlinks to mako config"
+    mkdir -v -p $HOME/.config/mako
+    ln -vnfs $SCRIPTPATH/.config/mako/config $HOME/.config/mako/config
+  fi
+
   if type sway &>/dev/null; then
     echo "=> Adding symlinks to sway config"
     mkdir -v -p $HOME/.config/sway

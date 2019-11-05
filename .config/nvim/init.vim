@@ -7,6 +7,7 @@ endif
 
 " PLUGINS
 call plug#begin()
+Plug 'tpope/vim-fugitive' " GIT Stuff
 Plug 'morhetz/gruvbox' " Color scheme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
