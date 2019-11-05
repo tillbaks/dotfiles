@@ -84,6 +84,8 @@ output HDMI-A-1 res 1920x1080 scale 0.8
 input * xkb_layout se
 # Make capslock another super key
 input * xkb_options caps:super
+# Make right menu key another super/windows key
+input * xkb_options altwin:menu_win
 # Disable capslock
 #input * xkb_options caps:none
 
