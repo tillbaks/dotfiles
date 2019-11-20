@@ -1,4 +1,5 @@
 {
+  "suggest.noselect": false,
   "languageserver": {
     "cquery": {
       "command": "cquery",
@@ -17,11 +18,17 @@
     }
   },
   "coc.preferences.formatOnSaveFiletypes": [
+    "xml",
     "json",
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact",
     "graphql"
-  ]
+  ],
+  "xml": {
+    "java": {
+      "home": "/usr/lib/jvm/default"
+    }
+  }
 }

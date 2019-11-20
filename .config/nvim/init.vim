@@ -9,16 +9,18 @@ endif
 call plug#begin()
 Plug 'tpope/vim-fugitive' " GIT Stuff
 Plug 'morhetz/gruvbox' " Color scheme
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug '/usr/bin/fzf'
+Plug 'junegunn/fzf.vim' " Ctrl-space and ctrl-n
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ctrlpvim/ctrlp.vim' " Ctrl-Space
 Plug 'rbgrouleff/bclose.vim' "lf.vim dependency
-Plug 'ptzz/lf.vim' " Ctrl-n
+Plug 'ptzz/lf.vim' " Ctrl-f
 Plug 'sheerun/vim-polyglot' " Programming language support
 Plug 'rhysd/vim-clang-format' " Format C-like code
 Plug 'TaDaa/vimade' " Fades out inactive panes
 "Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/lightline.vim'
+Plug 'bling/vim-bufferline'
 call plug#end()
 
 " Split navigation
@@ -47,7 +49,8 @@ let g:clang_format#detect_style_file = 1 " Find and use .clang-format file
 let g:clang_format#style_options = { "BasedOnStyle" : "google" } " Default style
 
 " Coc extensions
-call coc#add_extension('coc-tsserver', 'coc-json', 'coc-html', 'coc-css', 'coc-python', 'coc-prettier', 'coc-yaml', 'coc-svelte')
+"
+call coc#add_extension('coc-tsserver', 'coc-json', 'coc-html', 'coc-css', 'coc-python', 'coc-prettier', 'coc-yaml', 'coc-svelte', 'coc-snippets', 'coc-pairs', 'https://github.com/fivethree-team/vscode-svelte-snippets', 'https://github.com/nathanchapman/vscode-javascript-snippets')
 " Use <Tab> and <S-Tab> to navigate the completion list:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -60,9 +63,6 @@ let g:gruvbox_contrast_dark="medium"
 let g:gruvbox_italicize_strings=1
 let g:gruvbox_italicize_comments=1
 colorscheme gruvbox
-
-" vim-airline/vim-airline plugin
-let g:airline#extensions#tabline#enabled = 1
 
 " pangloss/vim-javascript plugin
 let g:javascript_plugin_jsdoc = 1
@@ -110,10 +110,7 @@ autocmd BufWritePre * %s/\s\+$//e
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
 "let g:lf_command_override = 'lf -command "set nopreview; set ratios 1; set hidden"'
-nnoremap <C-n> :Lf<CR>
-
-" Opens CTRLP Buffer chooser dialog
-nmap <C-space> :CtrlPBuffer<CR>
+nnoremap <C-f> :Lf<CR>
 
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
@@ -139,3 +136,63 @@ inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <BS> X
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
+
+" Remap for rename current word
+nmap <F2> <Plug>(coc-rename)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+
+" Opens FZF Buffer chooser dialog
+nmap <C-space> :Buffers<CR>
+" Opens FZF Git Files dialog
+nmap <C-n> :GitFiles --exclude-standard --others --cached<CR>
+
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" :Files previews
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+set hidden
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+
+set showtabline=0   " disable top bar with open buffers
+let g:bufferline_active_buffer_left = '[ '
+let g:bufferline_active_buffer_right = ']'
+let g:bufferline_show_bufnr = 0
+

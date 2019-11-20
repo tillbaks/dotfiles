@@ -10,8 +10,8 @@ gaps outer -10
 smart_borders on
 smart_gaps off
 hide_edge_borders smart
-for_window [app_id="termite"] opacity 0.8
-for_window [class="Brave-browser"] opacity 0.85
+#for_window [app_id="termite"] opacity 0.8
+#for_window [class="Brave-browser"] opacity 0.85
 
 set $foreground   #fbf1c7
 set $foreground-alt   #ebdbb2
@@ -80,19 +80,21 @@ output HDMI-A-1 res 1920x1080 scale 0.8
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+input type:keyboard {
+  xkb_layout se
+  # Make right menu and capslock - super/windows key
+  # Make capslock another super key
+  xkb_options "altwin:menu_win, caps:super"
 
-input * xkb_layout se
-# Make capslock another super key
-input * xkb_options caps:super
-# Make right menu key another super/windows key
-input * xkb_options altwin:menu_win
-# Disable capslock
-#input * xkb_options caps:none
+  # Decrease delay before keypress will start to repeat and how many times per second
+  repeat_delay 400
+  repeat_rate 15
+}
 
-input "2:7:SynPS/2_Synaptics_TouchPad" {
+input type:touchpad {
   tap enabled
   accel_profile adaptive
-  pointer_accel 0.2
+  pointer_accel 0.25
 }
 
 # Mapping to display to be able to rotate screen with rot8-git
