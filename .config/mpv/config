@@ -7,8 +7,8 @@ vo=gpu
 hwdec=vaapi
 gpu-context=wayland
 ytdl=yes
-ytdl-format=h264/bestvideo[ext=mp4]+bestaudio/best
-#ytdl-format=h264/best[height=720][ext=mp4]+bestaudio/best
+#ytdl-format=h264/bestvideo[ext=mp4]+bestaudio/best
+ytdl-format=h264/bestvideo[width<=1920][ext=mp4]+bestaudio/best
 ytdl-raw-options=ignore-errors=
 
 #########

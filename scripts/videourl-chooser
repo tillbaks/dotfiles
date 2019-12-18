@@ -1,6 +1,6 @@
 #!/bin/sh
 videourl="$1"
-selection=$(echo -e "Play with MPV\nDownload with YouTubeDL\nDownload then play" | rofi -dmenu -theme ~/.config/rofi/gruvbox -p "Filter" -mesg "$videourl" -no-custom)
+selection=$(echo -e "Download then play\nPlay with MPV\nDownload with YouTubeDL" | rofi -dmenu -theme ~/.config/rofi/gruvbox -p "Filter" -mesg "$videourl" -no-custom)
 
 if [ "$selection" == "Play with MPV" ]; then
 
