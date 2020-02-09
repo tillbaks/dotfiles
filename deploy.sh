@@ -98,6 +98,12 @@ if [ ! $USER == "root" ]; then
     ln -vnfs $SCRIPTPATH/.config/termite/config $HOME/.config/termite/config
   fi
 
+  if type alacritty &>/dev/null; then
+    echo "=> Adding symlinks to alacritty config"
+    mkdir -v -p $HOME/.config/alacritty
+    ln -vnfs $SCRIPTPATH/.config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+  fi
+
   if type mpv &>/dev/null; then
     echo "=> Adding symlinks to mpv config"
     mkdir -v -p $HOME/.config/mpv
