@@ -15,9 +15,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rbgrouleff/bclose.vim' "lf.vim dependency
 Plug 'ptzz/lf.vim' " Ctrl-f
 Plug 'sheerun/vim-polyglot' " Programming language support
-Plug 'rhysd/vim-clang-format' " Format C-like code
 Plug 'TaDaa/vimade' " Fades out inactive panes
-"Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'bling/vim-bufferline'
@@ -42,12 +40,6 @@ let g:vimade = {}
 let g:vimade.fadelevel = 0.7
 let g:vimade.enablesigns = 1
 
-" clang-format - enable auto-formatting on save for C and java files
-autocmd FileType c,cpp,java ClangFormatAutoEnable
-
-let g:clang_format#detect_style_file = 1 " Find and use .clang-format file
-let g:clang_format#style_options = { "BasedOnStyle" : "google" } " Default style
-
 " Coc extensions
 "
 call coc#add_extension('coc-tsserver', 'coc-json', 'coc-html', 'coc-css', 'coc-python', 'coc-prettier', 'coc-yaml', 'coc-svelte', 'coc-snippets', 'coc-pairs', 'https://github.com/fivethree-team/vscode-svelte-snippets', 'https://github.com/nathanchapman/vscode-javascript-snippets')
@@ -64,13 +56,13 @@ let g:gruvbox_italicize_strings=1
 let g:gruvbox_italicize_comments=1
 colorscheme gruvbox
 
-" pangloss/vim-javascript plugin
-let g:javascript_plugin_jsdoc = 1
 
 set nocompatible
 syntax on
 filetype plugin on
 
+set cursorline
+set noshowmode
 set shell=bash
 set autochdir "Change current working dir to dir of file
 
