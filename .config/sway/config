@@ -99,7 +99,7 @@ input type:touchpad {
 }
 
 # Mapping to display to be able to rotate screen with rot8-git
-input 0:0:Intel_Virtual_Button_driver map_to_output eDP-1
+#input 0:0:Intel_Virtual_Button_driver map_to_output eDP-1
 
 ### Key bindings
 #
@@ -212,10 +212,15 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    bindsym Left resize shrink width 50px
+    bindsym Down resize grow height 50px
+    bindsym Up resize shrink height 50px
+    bindsym Right resize grow width 50px
+
+    bindsym Shift+Left resize shrink width 5px
+    bindsym Shift+Down resize grow height 5px
+    bindsym Shift+Up resize shrink height 5px
+    bindsym Shift+Right resize grow width 5px
 
     # return to default mode
     bindsym Return mode "default"
@@ -266,7 +271,7 @@ bindswitch lid:off exec ~/scripts/swaybg-random.sh; exec light -U 5; exec light 
 exec_always ~/scripts/swaybg-random.sh
 exec light -U 5
 exec light -A 5
-exec rot8
+#exec rot8
 exec mako
 
 # Set GTK theme

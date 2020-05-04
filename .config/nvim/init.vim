@@ -200,3 +200,8 @@ let g:bufferline_show_bufnr = 0
 vnoremap <C-c> "+y
 " Paste from clipboard using ctrl-v
 map <C-v> "+p
+
+
+
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE

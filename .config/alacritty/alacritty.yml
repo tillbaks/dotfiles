@@ -2,9 +2,16 @@ window:
   padding:
     x: 10
     y: 6
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+background_opacity: 0.8
+
 # Font configuration (changes require restart)
 font:
-  size: 18
+  size: 17
   normal:
     family: Droid Sans Mono
     style: Regular
@@ -14,6 +21,10 @@ font:
   italic:
     family: Droid Sans Mono
     style: Italic
+
+cursor:
+  style: Block
+  unfocused_hollow: true
 
 # Colors (Gruvbox dark)
 colors:
